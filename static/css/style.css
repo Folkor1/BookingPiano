@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #ececec;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.navbar-nav {
+    margin-right: 50px;
+  }
+
+.navbar-nav > li {
+  padding-top: 50px;
+}
+
+.navbar-nav .nav-link.active {
+  color: #FCF8FF;
+}
+
+
