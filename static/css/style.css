@@ -9,6 +9,8 @@ main {
   flex: 1 0 auto;
 }
 
+/* Navigation */
+
 .navbar-nav {
     margin-right: 50px;
   }
@@ -19,6 +21,48 @@ main {
 
 .navbar-nav .nav-link.active {
   color: #FCF8FF;
+}
+
+/* Home page picture */
+
+.home-page-pic {
+  padding: 3px;
+  opacity: 0.8;
+}
+
+.pic-frame {
+  margin-top: 15px;
+  height: 800x;
+  width: 1200x;
+  border: 1px solid #1c1b1a;
+}
+
+/* Contact information */
+
+.contact-list {
+  list-style-type: none;
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: Comfortaa, sans-serif;
+}
+
+.nav-link, h3, h5 {
+  font-family: Comfortaa, sans-serif;
+}
+
+.working-days, .working-hours, .working-hours-heading {
+  list-style-type: none;
+  font-weight: 600;
+  font-family: Comfortaa, sans-serif;
+}
+
+.working-hours {
+  padding: 0px;
+}
+
+.working-days > li, .working-hours > li {
+  padding: 4px;
 }
 
 
