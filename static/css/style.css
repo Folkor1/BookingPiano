@@ -30,12 +30,12 @@ main {
 
 /* Home page picture */
 
-.home-page-pic {
+#home-page-pic {
   padding: 3px;
   opacity: 0.8;
 }
 
-.pic-frame {
+#pic-frame {
   margin-top: 15px;
   height: 800x;
   width: 1200x;
@@ -68,6 +68,8 @@ main {
 #book-button {
   padding: 6px 50px 6px 65px;
   font-weight: 900;
+  background-color: #FCF8FF;
+
 }
 
 #book-button:hover {
@@ -76,7 +78,7 @@ main {
 }
 
 #stamps {
-  margin-top: 150px;
+  margin-top: 80px;
   margin-bottom: 50px;
 }
 

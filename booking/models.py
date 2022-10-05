@@ -24,3 +24,15 @@ class Lesson(models.Model):
 
     def __str__(self):
         return self.get_lesson_display()
+
+
+class About(models.Model):
+    """
+    Class for about model.
+    """
+    title = models.CharField(max_length=100)
+    text = models.TextField(max_length=1000)
+    image = models.ImageField(upload_to='images/', blank=True)
+
+    def __str__(self):
+        return self.title
