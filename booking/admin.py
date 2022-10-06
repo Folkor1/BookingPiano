@@ -31,7 +31,7 @@ class BookingsAdmin(admin.ModelAdmin):
     """
     Class for bookings admin model
     """
-    list_display = ('date', 'time', 'user', 'status', 'lesson', 'lesson_type')
+    list_display = ('lesson', 'lesson_type', 'date', 'time', 'user', 'status')
     search_fields = ['date', 'user', 'status']
     list_filter = ('lesson', 'lesson_type', 'date', 'status')
 

@@ -76,14 +76,8 @@ class Bookings(models.Model):
     class Meta:
         ordering = ['-date']
         unique_together = ("date", "time")
-        verbose_name = 'Bookings'
+        verbose_name = 'Booking'
         verbose_name_plural = 'Bookings'
-    
-    def __str__(self):
-        """
-        Return lesson name
-        """
-        return self.get_lesson_display()
 
 
 class About(models.Model):
@@ -99,4 +93,7 @@ class About(models.Model):
         verbose_name_plural = 'Abouts'
 
     def __str__(self):
+        """
+        Return title
+        """
         return self.title
