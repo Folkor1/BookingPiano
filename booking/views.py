@@ -6,6 +6,7 @@ def homepage(request):
     """
     return render(request, "index.html")
 
+
 def about(request):
     """
     Render about page.

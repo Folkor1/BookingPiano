@@ -1,20 +1,44 @@
 from django.contrib import admin
-from .models import Lesson, About
+from .models import BookingStatus, LessonType, Lesson, Bookings, About
+
+
+@admin.register(BookingStatus)
+class BookingStatusAdmin(admin.ModelAdmin):
+    """
+    Class for booking status admin model
+    """
+    list_display = ('get_status_display',)
+
+
+@admin.register(LessonType)
+class LessonTypeAdmin(admin.ModelAdmin):
+    """
+    Class for lesson type admin model
+    """
+    list_display = ('get_lesson_type_display',)
+
 
 @admin.register(Lesson)
-class LessonAdmin(admin.ModelAdmin):
+class LessonTypeAdmin(admin.ModelAdmin):
     """
-    Class for Lesson Admin model.
+    Class for lesson name admin model
     """
+    list_display = ('get_lesson_display',)
 
-    list_display = ('get_lesson_display', 'get_lesson_type_display', 'date', 'time', 'owner')
-    search_fields = ['date', 'owner']
-    list_filter = ('lesson', 'lesson_type', 'date')
+
+@admin.register(Bookings)
+class BookingsAdmin(admin.ModelAdmin):
+    """
+    Class for bookings admin model
+    """
+    list_display = ('date', 'time', 'user', 'status', 'lesson', 'lesson_type')
+    search_fields = ['date', 'user', 'status']
+    list_filter = ('lesson', 'lesson_type', 'date', 'status')
 
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
     """
-    Class for About Admin model.
+    Class for About Admin model
     """
     list_display = ('title', 'text', 'image')
