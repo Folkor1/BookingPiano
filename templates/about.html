@@ -3,7 +3,39 @@
 
 {% block content %}
 
-<!-- About - paragraph 1 -->
+<div class="container-fluid">
+    <div class="row mb-5">
 
+        <!-- About entries -->
+        
+            {% for about in about_list %}
+
+                {% if forloop.counter|divisibleby:2 %}
+
+                    <div class="row col-12 mt-5">
+                        <div class="col-5 mt-5">
+                            <img class="card-img-top" src=" {{ about.image.url }}">
+                        </div>
+                        <div class="col-6 mt-5">
+                        <p class="h3">{{ about.title}}</p>
+                        <p class="h5">{{ about.text}}</p>
+                        </div>
+                    </div>
+
+                {% else %}
+
+                    <div class="row col-12 mt-5">
+                        <div class="col-6 mt-5">
+                            <p class="h3">{{ about.title}}</p>
+                            <p class="h5">{{ about.text}}</p>
+                        </div>
+                        <div class="col-5 mt-5">
+                            <img class="card-img-top" src=" {{ about.image.url }}">
+                        </div>
+                    </div>
+
+                {% endif %}
+
+            {% endfor %}
 
 {%endblock%}

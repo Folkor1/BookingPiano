@@ -42,3 +42,4 @@ class AboutAdmin(admin.ModelAdmin):
     Class for About Admin model
     """
     list_display = ('title', 'text', 'image')
+    

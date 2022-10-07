@@ -20,12 +20,22 @@ main {
   padding-top: 50px;
 }
 
-.navbar-nav .nav-link.active {
+#navbar-logo {
+  height: 80px;
+}
+
+.nav-item a {
   color: #FCF8FF;
 }
 
-#navbar-logo {
-  height: 80px;
+.nav-link {
+  padding: 2px;
+}
+
+.navbar-nav .nav-link.active {
+border: 1px solid #FCF8FF;
+color: #FCF8FF;
+
 }
 
 /* Home page picture */

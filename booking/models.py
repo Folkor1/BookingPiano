@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from multiselectfield import MultiSelectField
+from cloudinary.models import CloudinaryField
+from datetime import datetime
 
 LESSONS = (('lessons_1', 'Piano'),
            ('lessons_2', 'Theory'))
@@ -86,11 +88,13 @@ class About(models.Model):
     """
     title = models.CharField(max_length=100)
     text = models.TextField(max_length=1000)
-    image = models.ImageField(upload_to='images/', blank=True)
+    image = CloudinaryField('image', default='placeholder', blank=True)
+    created = models.DateTimeField(default=datetime.now)
 
     class Meta:
         verbose_name = 'About'
         verbose_name_plural = 'Abouts'
+        ordering = ('created',)
 
     def __str__(self):
         """
