@@ -28,6 +28,10 @@ main {
   color: #FCF8FF;
 }
 
+.nav-item a:hover {
+  color: #FCF8FF;
+}
+
 .nav-link {
   padding: 2px;
 }
