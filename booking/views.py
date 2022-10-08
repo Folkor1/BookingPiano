@@ -15,3 +15,10 @@ class AboutView(generic.ListView):
     """
     model = About
     template_name = "about.html"
+
+
+def bookings(request):
+    """
+    Render bookings page
+    """
+    return render(request, "bookings.html")

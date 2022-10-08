@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Sign Up or Login message  -->
+
+    {% if user.is_authenticated %}
+
+        <div class="container row justify-content-between">
+            <div class="container mt-5">
+                <div class="row float-end ms-auto col-3 pl-1">
+                    <p class="text-center h5">My upcoming bookings:</p>
+                    <button type="button" class="btn btn-outline-dark rounded-0 mt-2" id="manage-bookings">Manage bookings</button>
+            </div>
+            <div class="container">
+                <p class="h3 mt-5 col-6 float-end" id="select-lesson">Select a lesson</p>
+                <div class="row col-8 d-flex justify-content-center">
+                    <div class="col-2 mt-3">
+                        <button type="button" class="btn btn-outline-dark lesson-button rounded-0" id="piano">Piano</button>
+                    </div>
+                    <div class="col-2 mt-3">
+                        <button type="button" class="btn btn-outline-dark lesson-button rounded-0" id="theory">Theory</button>
+                    </div>
+                </div>
+        </div>
+    
+
+    {% else %}
+
+        <p class="h3 mt-5 text-center">
+            Please <a class="text-info text-decoration-none" href="#"> Sign Up</a> 
+            or <a class="text-info text-decoration-none" href="#">Login</a> in order to make a reservation
+        </p>    
+
+    {% endif %}
+
+{%endblock%}
