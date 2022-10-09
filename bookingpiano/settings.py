@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'booking',
-    'active_link',
 ]
 
 MIDDLEWARE = [

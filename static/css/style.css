@@ -100,21 +100,41 @@ color: #FCF8FF;
 
 /* Bookings page */
 
+.btn {
+  border-radius: 3px;
+}
+
 #select-lesson {
-  margin-right: 28px;
+  position: absolute;
+  left: 0;
+}
+
+#selection {
+  margin: 100px 0 0 600px;
+  height: 580px;
 }
 
 .lesson-button {
   height: 80px;
-  width: 120px;
+  width: 130px;
   background-color: #FCF8FF;
 }
 
 #manage-bookings {
   background-color: #FCF8FF;
+  padding: 5px 50px 5px 50px;
 }
 
 #manage-bookings:hover {
   background-color: #1c1b1a;
-  
+}
+
+#contacts {
+  position: absolute;
+  bottom: 0px;
+  left: 80px;
+}
+
+#contacts-font {
+  font-family: Merriweather Sans, sans-serif;
 }

@@ -7,7 +7,7 @@ class BookingStatusAdmin(admin.ModelAdmin):
     """
     Class for booking status admin model
     """
-    list_display = ('get_status_display',)
+    list_display = ('status',)
 
 
 @admin.register(LessonType)
@@ -15,7 +15,7 @@ class LessonTypeAdmin(admin.ModelAdmin):
     """
     Class for lesson type admin model
     """
-    list_display = ('get_lesson_type_display',)
+    list_display = ('lesson_type',)
 
 
 @admin.register(Lesson)
@@ -23,7 +23,7 @@ class LessonTypeAdmin(admin.ModelAdmin):
     """
     Class for lesson name admin model
     """
-    list_display = ('get_lesson_display',)
+    list_display = ('lesson',)
 
 
 @admin.register(Bookings)

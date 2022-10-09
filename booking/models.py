@@ -1,23 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
-from multiselectfield import MultiSelectField
 from cloudinary.models import CloudinaryField
 from datetime import datetime
-
-LESSONS = (('lessons_1', 'Piano'),
-           ('lessons_2', 'Theory'))
-
-LESSON_TYPE = (('lesson_type1', 'Online'),
-               ('lesson_type2', 'Offline'))
-
-BOOKING_STATUS = (('status1', 'Upcoming'),
-                  ('status2', 'Completed'))
+from django.db.models import CharField
 
 class BookingStatus(models.Model):
     """
     Class for booking status model
     """
-    status = MultiSelectField(choices=BOOKING_STATUS, max_choices=1)
+    status = CharField(max_length=20)
 
     class Meta:
         verbose_name = 'Booking status'
@@ -27,14 +18,14 @@ class BookingStatus(models.Model):
         """
         Return status name
         """
-        return self.get_status_display()
+        return self.status
 
 
 class Lesson(models.Model):
     """
     Class for lesson name model
     """
-    lesson = MultiSelectField(choices=LESSONS, max_choices=1)
+    lesson = CharField(max_length=20)
 
     class Meta:
         verbose_name = 'Lesson'
@@ -44,14 +35,14 @@ class Lesson(models.Model):
         """
         Return lesson name
         """
-        return self.get_lesson_display()
+        return self.lesson
 
 
 class LessonType(models.Model):
     """
     Return status name
     """
-    lesson_type = MultiSelectField(choices=LESSON_TYPE, max_choices=1)
+    lesson_type = CharField(max_length=20)
 
     class Meta:
         verbose_name = 'Lesson type'
@@ -61,7 +52,7 @@ class LessonType(models.Model):
         """
         Return lesson type
         """
-        return self.get_lesson_type_display()
+        return self.lesson_type
 
 
 class Bookings(models.Model):

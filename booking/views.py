@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import About
+from .models import About, Bookings
+
+
 
 def homepage(request):
     """
@@ -18,7 +20,6 @@ class AboutView(generic.ListView):
 
 
 def bookings(request):
-    """
-    Render bookings page
-    """
-    return render(request, "bookings.html")
+    bookings = Bookings.objects.all()
+    context = {'bookings': bookings}
+    return render(request, 'bookings.html', context)
