@@ -3,7 +3,6 @@ from django.views import generic
 from .models import About, Bookings
 
 
-
 def homepage(request):
     """
     Render the home page
@@ -19,7 +18,10 @@ class AboutView(generic.ListView):
     template_name = "about.html"
 
 
-def bookings(request):
-    bookings = Bookings.objects.all()
-    context = {'bookings': bookings}
-    return render(request, 'bookings.html', context)
+class BookingsView(generic.ListView):
+    """
+    Render bookings page
+    """
+    model = Bookings
+    template_name = "bookings.html"
+

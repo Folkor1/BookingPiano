@@ -2,13 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from datetime import datetime
-from django.db.models import CharField
+
 
 class BookingStatus(models.Model):
     """
     Class for booking status model
     """
-    status = CharField(max_length=20)
+    status = models.CharField(max_length=20)
+    past = models.BooleanField(default=False, blank=True)
 
     class Meta:
         verbose_name = 'Booking status'
@@ -25,7 +26,7 @@ class Lesson(models.Model):
     """
     Class for lesson name model
     """
-    lesson = CharField(max_length=20)
+    lesson = models.CharField(max_length=20)
 
     class Meta:
         verbose_name = 'Lesson'
@@ -42,7 +43,7 @@ class LessonType(models.Model):
     """
     Return status name
     """
-    lesson_type = CharField(max_length=20)
+    lesson_type = models.CharField(max_length=20)
 
     class Meta:
         verbose_name = 'Lesson type'
@@ -62,7 +63,8 @@ class Bookings(models.Model):
     date = models.DateField()
     time = models.TimeField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    status = models.ForeignKey(BookingStatus, on_delete=models.CASCADE)
+    status = models.ForeignKey(BookingStatus, on_delete=models.CASCADE, related_name='status1')
+    past = models.ForeignKey(BookingStatus, default=False, on_delete=models.CASCADE, related_name='past1')
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     lesson_type = models.ForeignKey(LessonType, on_delete=models.CASCADE)
 

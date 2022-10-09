@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <!-- Select and book a lesson  -->
 
     {% if user.is_authenticated %}
@@ -35,12 +34,18 @@
             <div class="col-3">
                 <div class="text-center">
                     <p class="text-center h5">My upcoming bookings:</p>
-                    <div class="text-center">
-                        {% for booking in bookings %}
-                            {{ booking.verbose_name }}
+                    <div class="mt-4">
+
+                        {% for booking in bookings_list %}
+                            {% if booking.past %}
+
+                                <p>{{ booking.lesson }} {{ booking.lesson_type }} | {{ booking.date }}</p>
+
+                            {% endif %}
                         {% endfor %}
+
                     </div>
-                    <button type="button" class="btn btn-outline-dark mt-2 ms-auto" id="manage-bookings">Manage bookings</button>
+                    <button type="button" class="btn btn-outline-dark ms-auto" id="manage-bookings">Manage bookings</button>
                 </div>
             </div>
         </div>

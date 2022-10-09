@@ -7,7 +7,7 @@ class BookingStatusAdmin(admin.ModelAdmin):
     """
     Class for booking status admin model
     """
-    list_display = ('status',)
+    list_display = ('status', 'past',)
 
 
 @admin.register(LessonType)
@@ -31,7 +31,7 @@ class BookingsAdmin(admin.ModelAdmin):
     """
     Class for bookings admin model
     """
-    list_display = ('lesson', 'lesson_type', 'date', 'time', 'user', 'status')
+    list_display = ('lesson', 'lesson_type', 'date', 'time', 'user', 'status', 'past')
     search_fields = ['date', 'user', 'status']
     list_filter = ('lesson', 'lesson_type', 'date', 'status')
 
