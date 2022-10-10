@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.views import generic
 from .models import About, Bookings
 
-
 def homepage(request):
     """
     Render the home page
@@ -24,4 +23,3 @@ class BookingsView(generic.ListView):
     """
     model = Bookings
     template_name = "bookings.html"
-

@@ -4,13 +4,15 @@ from cloudinary.models import CloudinaryField
 from datetime import datetime
 
 
+STATUS = ((0, "Completed"), (1, "Upcoming"))
+
+
 class BookingStatus(models.Model):
     """
     Class for booking status model
     """
-    status = models.CharField(max_length=20)
-    past = models.BooleanField(default=False, blank=True)
-
+    status = models.IntegerField(choices=STATUS, default=0)
+    
     class Meta:
         verbose_name = 'Booking status'
         verbose_name_plural = 'Booking statuses'
@@ -19,7 +21,7 @@ class BookingStatus(models.Model):
         """
         Return status name
         """
-        return self.status
+        return str(self.status)
 
 
 class Lesson(models.Model):
@@ -63,8 +65,7 @@ class Bookings(models.Model):
     date = models.DateField()
     time = models.TimeField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    status = models.ForeignKey(BookingStatus, on_delete=models.CASCADE, related_name='status1')
-    past = models.ForeignKey(BookingStatus, default=False, on_delete=models.CASCADE, related_name='past1')
+    status = models.ForeignKey(BookingStatus, on_delete=models.CASCADE)
     lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     lesson_type = models.ForeignKey(LessonType, on_delete=models.CASCADE)
 

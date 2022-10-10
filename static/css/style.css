@@ -135,6 +135,24 @@ color: #FCF8FF;
   left: 80px;
 }
 
-#contacts-font {
+#contacts-font, #upc-book {
   font-family: Merriweather Sans, sans-serif;
+}
+
+.back-button {
+  font-size: 15px;
+  width: 280px;
+  border: none;
+}
+
+.book-for {
+  margin: 0;
+  padding: 0;
+  width: 100px;
+}
+
+.select-btn {
+  margin: 0;
+  padding: 0;
+  width: 62px;
 }

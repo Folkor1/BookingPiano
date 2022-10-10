@@ -5,19 +5,62 @@
 
     {% if user.is_authenticated %}
 
+        
         <div class="container-fluid row mt-5 justify-content-between" id="select-lesson">
             <div class="col-4" id="selection">
                 <div>
-                    <p class="h3 text-center">Select a lesson</p>
-                    <div class="row d-flex justify-content-center">
+
+                    <!-- Select piano or theory  -->
+                    <div class="row d-flex justify-content-center" id="piano-theory">
+                        <p class="h3 text-center">Select a lesson</p>
                         <div class="col-3 mt-3">
-                            <button type="button" class="btn btn-outline-dark lesson-button lesson-button">Piano</button>
+                            <button type="button" class="btn btn-outline-dark lesson-button lesson-button" id="piano-btn">Piano</button>
                         </div>
                         <div class="col-3 mt-3">
-                            <button type="button" class="btn btn-outline-dark lesson-button lesson-button">Theory</button>
+                            <button type="button" class="btn btn-outline-dark lesson-button lesson-button" id="theory-btn">Theory</button>
+                        </div>
+                    </div>
+
+                    <!-- Select online or offline  -->
+                    <div id="online-offline">
+                        <p class="h3 text-center d-none" id="select-lesson-type">Select lesson type</p>
+                        <div class="row justify-content-center">
+                            <p class="h3 text-center d-none" id="select-date">Select date</p>
+                            <p class="book-for d-none" id="book-for-1">Booking for </p>
+                            <p class="select-btn d-none text-center" id="piano">Piano</p>
+                            <p class="select-btn d-none text-center" id="theory">Theory</p>
+                            <p class="select-btn d-none text-center" id="online">Online</p>
+                            <p class="select-btn d-none text-center" id="offline">Offline</p>
+                        </div>
+                        <div class="row d-flex justify-content-center d-none" id="oo-buttons">
+                            <div class="col-3 mt-3">
+                                <button type="button" class="btn btn-outline-dark lesson-button" id="online-btn">Online</button>
+                            </div>
+                            <div class="col-3 mt-3">
+                                <button type="button" class="btn btn-outline-dark lesson-button" id="offline-btn">Offline</button>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn text-center mt-5 back-button" id="back-lesson"><i class="fa-solid fa-arrow-left fa-fw"></i>Back to lesson selection</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Select date  -->
+                    <div id="calendar" class="d-none">
+                        <div class="row justify-content-center">
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-3 mt-3">
+                                <button type="button" class="btn btn-outline-dark lesson-button">Calendar</button>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="btn text-center mt-5 back-button" id="back-lesson-type"><i class="fa-solid fa-arrow-left fa-fw"></i>Back to lesson type selection</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Contacts  -->
                 <div class="d-flex justify-content-center mt-5">       
                     <div id="contacts">
                         <p id="contacts-font">CONTACTS</p>
@@ -31,16 +74,18 @@
                     </div>
                 </div>
             </div>
+
+            <!-- My upcoming bookings  -->
             <div class="col-3">
                 <div class="text-center">
                     <p class="text-center h5">My upcoming bookings:</p>
                     <div class="mt-4">
 
                         {% for booking in bookings_list %}
-                            {% if booking.past %}
+                            {% if booking.status.status == 1 %}
 
-                                <p>{{ booking.lesson }} {{ booking.lesson_type }} | {{ booking.date }}</p>
-
+                                <p id="upc-book">{{ booking.lesson }} {{ booking.lesson_type }} | {{ booking.date }}</p>
+                            
                             {% endif %}
                         {% endfor %}
 
