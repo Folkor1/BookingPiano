@@ -5,7 +5,6 @@
 
     {% if user.is_authenticated %}
 
-        
         <div class="container-fluid row mt-5 justify-content-between" id="select-lesson">
             <div class="col-4" id="selection">
                 <div>
@@ -27,8 +26,8 @@
                         <div class="row justify-content-center">
                             <p class="h3 text-center d-none" id="select-date">Select date</p>
                             <p class="book-for d-none" id="book-for-1">Booking for </p>
-                            <p class="select-btn d-none text-center" id="piano">Piano</p>
-                            <p class="select-btn d-none text-center" id="theory">Theory</p>
+                            <p class="select-btn d-none" id="piano">Piano</p>
+                            <p class="select-btn d-none" id="theory">Theory</p>
                             <p class="select-btn d-none text-center" id="online">Online</p>
                             <p class="select-btn d-none text-center" id="offline">Offline</p>
                         </div>
@@ -50,8 +49,12 @@
                         <div class="row justify-content-center">
                         </div>
                         <div class="row d-flex justify-content-center">
-                            <div class="col-3 mt-3">
-                                <button type="button" class="btn btn-outline-dark lesson-button">Calendar</button>
+                            <div class="col-3 mt-3 d-flex justify-content-center">
+                                <div id="date" class="border border-dark">
+                                    <div id="datepicker">
+                                    </div>
+                                        <input type="hidden" id="my_hidden_input">
+                                </div>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="btn text-center mt-5 back-button" id="back-lesson-type"><i class="fa-solid fa-arrow-left fa-fw"></i>Back to lesson type selection</button>

@@ -53,5 +53,4 @@ $(document).ready(function() {
         $('#online').addClass("d-none");
         $('#offline').addClass("d-none");
     });
-
 });

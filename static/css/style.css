@@ -154,5 +154,18 @@ color: #FCF8FF;
 .select-btn {
   margin: 0;
   padding: 0;
-  width: 62px;
+  width: 60px;
+}
+
+#piano {
+  width: 50px;
+}
+
+#date {
+  background-color: #FCF8FF;
+  border-radius: 3px;
+}
+
+.day {
+  font-weight: 900;
 }
