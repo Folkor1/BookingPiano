@@ -25,11 +25,12 @@
                         <p class="h3 text-center d-none" id="select-lesson-type">Select lesson type</p>
                         <div class="row justify-content-center">
                             <p class="h3 text-center d-none" id="select-date">Select date <a class="trigger"><i class="bi bi-info-circle-fill text-info trigger" id="info-icon"></i></a></p>
-                            <p class="book-for d-none" id="book-for-1">Booking for </p>
-                            <p class="select-btn d-none" id="piano">Piano</p>
-                            <p class="select-btn d-none" id="theory">Theory</p>
-                            <p class="select-btn d-none text-center" id="online">Online</p>
-                            <p class="select-btn d-none text-center" id="offline">Offline</p>
+                            <div class="row d-flex justify-content-center d-none" id="book-for">
+                                 Booking for&nbsp;
+                                <span class="p-0 me-2 w-auto" id="piano-or-theory"></span>
+                                <span class="p-0 w-auto" id="online-or-offline"></span>
+                            </div>
+
                         </div>
                         <div class="row d-flex justify-content-center d-none" id="oo-buttons">
                             <div class="col-3 mt-3">
@@ -61,13 +62,13 @@
                             <fieldset class="d-flex justify-content-center mt-3 d-none" id="time-picker">
                                 <label for="speed"></label>
                                 <select name="speed" id="speed" class="border border-dark text-center">
-                                  <option selected disabled hidden>Select time</option>
-                                  <option>10:00 - 10:45</option>
-                                  <option>11:00 - 11:45</option>
-                                  <option>12:00 - 12:45</option>
-                                  <option>13:00 - 13:45</option>
-                                  <option>15:00 - 15:45</option>
-                                  <option>16:00 - 16:45</option>
+                                    <option selected disabled hidden>Select time</option>
+                                    <option>10:00 - 10:45</option>
+                                    <option>11:00 - 11:45</option>
+                                    <option>12:00 - 12:45</option>
+                                    <option>13:00 - 13:45</option>
+                                    <option>15:00 - 15:45</option>
+                                    <option>16:00 - 16:45</option>
                                 </select>
                             </fieldset>
 
@@ -85,23 +86,23 @@
                 </div>
 
                 <!-- Book confirmation message -->
-                <div class="row d-none border border-dark d-flex justify-content-around" id="confirm-message">
+                <div class="row d-none border border-dark d-flex justify-content-around ms-5" id="confirm-message">
                     <div>
                         <p class="mt-3 h4 mb-0 text-center">This is booking for</p>
                     </div>
                     <div class="row d-flex justify-content-center confirmation-div">
-                        <span class="h4 text-end p-0 me-2" id="lesson-confirmation"></span>
-                        <span class="h4 text-start p-0" id="lesson-type-confirmation"></span>
+                        <span class="h5 text-end p-0 me-2" id="lesson-confirmation"></span>
+                        <span class="h5 text-start p-0" id="lesson-type-confirmation"></span>
                     </div>
                     <div class="row d-flex justify-content-center confirmation-div">
-                        <span class="h4 text-end p-0 me-3" id="date-confirmation"></span>
-                        <span class="h4 text-start p-0" id="time-confirmation"></span>
+                        <span class="h5 text-end p-0 me-3" id="date-confirmation"></span>
+                        <span class="h5 text-start p-0" id="time-confirmation"></span>
                     </div>
-                    <div class="mt-5 col-5 d-flex justify-content-center">
-                        <button type="button" class="btn text-center border border-dark" id="confirm"><i class="fa-solid fa-check fa-fw"></i>Confirm</button>
+                    <div class="col-5 d-flex justify-content-center">
+                        <button type="button" class="btn text-center border border-dark bg-info bg-opacity-25" id="confirm"><i class="fa-solid fa-check fa-fw"></i>Confirm</button>
                     </div>
-                    <div class="mt-5 col-5 d-flex justify-content-center">
-                        <button type="button" class="btn text-center border border-dark" id="back-to-selection"><i class="fa-solid fa-arrow-left fa-fw"></i>Back</button>
+                    <div class="col-5 d-flex justify-content-center">
+                        <button type="button" class="btn text-center border border-dark bg-secondary bg-opacity-25" id="back-to-selection"><i class="fa-solid fa-arrow-left fa-fw"></i>Back</button>
                     </div>
                 </div>
 

@@ -146,20 +146,14 @@ color: #FCF8FF;
   border: none;
 }
 
-.book-for {
-  margin: 0;
-  padding: 0;
-  width: 100px;
-}
-
 .select-btn {
   margin: 0;
   padding: 0;
   width: 60px;
 }
 
-#piano {
-  width: 50px;
+#piano-or-theory {
+  width: 60px;
 }
 
 #date, #speed, #book-confirm, #confirm-message {
@@ -201,7 +195,8 @@ color: #FCF8FF;
 /* Booking confirm message */
 
 #confirm-message {
-  height: 260px;
+  height: 220px;
+  width: 500px;
 }
 
 #back-to-selection, #confirm {
@@ -219,11 +214,9 @@ color: #FCF8FF;
 
 .confirmation-div {
   height: 30px;
-
 }
 
 #date-confirmation, #time-confirmation {
   font-family: Merriweather Sans, sans-serif;
   width: 200px;
 }
-
