@@ -62,16 +62,14 @@ class Bookings(models.Model):
     """
     Class for Bookings model
     """
+    lesson = models.CharField(max_length=50)
+    lesson_type = models.CharField(max_length=50)
     date = models.DateField()
     time = models.TimeField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    status = models.ForeignKey(BookingStatus, on_delete=models.CASCADE)
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
-    lesson_type = models.ForeignKey(LessonType, on_delete=models.CASCADE)
+    status = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-date']
-        unique_together = ("date", "time")
         verbose_name = 'Booking'
         verbose_name_plural = 'Bookings'
 

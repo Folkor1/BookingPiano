@@ -10,6 +10,7 @@ $(document).ready(function() {
     let date = [];
     let time = [];
 
+
     // Change lesson type options when clicked
     $("#piano-btn").on("click", function() {
         $("#piano-theory").addClass("d-none");
@@ -107,26 +108,30 @@ $(document).ready(function() {
       // Get time from time picker
       function getTime() {
       selectTime.innerText = time[0];
+      document.getElementById('time_inp').value = time[0];
       };
 
       // Get selections lesson types from booking menus
       function getLesson() {
         lesson.innerText = booking[0];
+        document.getElementById('lesson_inp').value = booking[0];
       };
 
       function getLessonType() {
         lessonType.innerText = booking[1];
+        document.getElementById('lesson_type_inp').value = booking[1];
       };
 
       // Get date from the calendar
       $('#date').datepicker().on('changeDate', function (selectedDate) {
         date.splice(0);
-        selectedDate = selectedDate.date.toString().slice(0, 10);
+        selectedDate = selectedDate.date.toLocaleDateString('en-CA');
         date.push(selectedDate);
       });
 
       function getDate() {
         selectDate.innerText = date[0];
+        document.getElementById('date_inp').value = date[0];
       };
 
       // Booking confirmation message
@@ -147,6 +152,13 @@ $(document).ready(function() {
         $('#calendar').removeClass('d-none');
         $('#select-date').removeClass('d-none');
         $('#book-for').removeClass('d-none');
+      });
+
+      // Booking is confirmed
+      $('#manage').on("click", function() {
+        $(document).ready(function() {
+          $('#thx-div').removeClass('d-none');
+          });
       });
 
 });

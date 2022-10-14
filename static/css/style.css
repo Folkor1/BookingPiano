@@ -120,12 +120,12 @@ color: #FCF8FF;
   background-color: #FCF8FF;
 }
 
-#manage-bookings {
+#manage-bookings, #manage {
   background-color: #FCF8FF;
   padding: 5px 50px 5px 50px;
 }
 
-#manage-bookings:hover {
+#manage-bookings:hover, #manage:hover {
   background-color: #1c1b1a;
 }
 
