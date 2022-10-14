@@ -154,11 +154,4 @@ $(document).ready(function() {
         $('#book-for').removeClass('d-none');
       });
 
-      // Booking is confirmed
-      $('#manage').on("click", function() {
-        $(document).ready(function() {
-          $('#thx-div').removeClass('d-none');
-          });
-      });
-
 });

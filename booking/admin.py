@@ -1,14 +1,5 @@
 from django.contrib import admin
-from .models import BookingStatus, Bookings, About
-
-
-@admin.register(BookingStatus)
-class BookingStatusAdmin(admin.ModelAdmin):
-    """
-    Class for booking status admin model
-    """
-    list_display = ('status',)
-    list_filter = ('status',)
+from .models import Bookings, About
 
 
 @admin.register(Bookings)
