@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    <!-- My upcoming bookings -->
+    <div class="mt-5 row row-cols-1 d-flex justify-content-centerd">
+        <div class="text-center">
+            <p class="h3 mt-5 text-center">
+                Thanks! You can view your bookings in <span class="text-info">Manage bookings</span> 
+                section
+            </p>
+            <button type="button" class="btn btn-outline-dark ms-auto mt-4" id="success-manage-bookings"><a class="text-reset text-decoration-none h6"  href="{% url 'manage_bookings' %}">Manage bookings</a></button>
+        </div>
+    </div>
+
+    {% else %}
+
+    <!-- Sign up or login message -->
+    <p class="h3 mt-5 text-center">
+        Please <a class="text-info text-decoration-none" href="#"> Sign Up</a> 
+        or <a class="text-info text-decoration-none" href="#">Login</a>
+    </p>
+
+    {% endif %}
+
+{%endblock%}

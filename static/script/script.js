@@ -6,6 +6,8 @@ $(document).ready(function() {
     let selectTime = document.getElementById("time-confirmation");
     let pianoOrTheory = document.getElementById("piano-or-theory");
     let onlineorOffline = document.getElementById("online-or-offline");
+    let editDateDate = document.getElementById("edit-date-date");
+    let editDateTime = document.getElementById("edit-time");
     let booking = [];
     let date = [];
     let time = [];
@@ -102,6 +104,7 @@ $(document).ready(function() {
         $('#book-div').removeClass('d-none');
         time.splice(0);
         var selectedTime = $("#time-picker option:selected").text();
+        console.log(time)
         time.push(selectedTime);
       });
 
@@ -153,5 +156,31 @@ $(document).ready(function() {
         $('#select-date').removeClass('d-none');
         $('#book-for').removeClass('d-none');
       });
+
+      // Edit date confirmation message
+      $('#edit-book-confirm').on("click", function() {
+        $('#edit-date-time').addClass('d-none');
+        $('#edit-date-form').removeClass('d-none');
+        getDateDate();
+        getDateTime();
+      });
+
+      // Edit date - back button
+      $('#edit-date-back-to-selection').on("click", function() {
+        $('#edit-date-form').addClass('d-none');
+        $('#edit-date-time').removeClass('d-none');
+      });
+
+      // Get date from date picker on edit
+      function getDateDate() {
+        editDateDate.innerText = date[0];
+        document.getElementById('edit_date_inp').value = date[0];
+      };
+
+      // Get time from time picker on edit
+      function getDateTime() {
+        editDateTime.innerText = time[0];
+        document.getElementById('edit_time_inp').value = time[0];
+        };
 
 });

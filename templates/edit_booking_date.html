@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+    <!-- Edit date and time -->
+    <div class="mt-5 row row-cols-1 d-flex justify-content-center">
+        <div class="text-center" id="edit-date-time">
+            <p class="h3 mt-5 text-center">Edit date and time</p>
+            <div class="mt-2">
+                <div class="row d-flex justify-content-center" id="book-for">
+                    Booking for&nbsp;
+                   <span class="p-0 me-2 w-auto" id="piano-or-theory">{{ booking.lesson }}</span>
+                   <span class="p-0 w-auto" id="online-or-offline"></span>
+               </div>
+
+                <!-- Select date  -->
+                <div id="calendar">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-3 mt-3 d-flex justify-content-center">
+                            <div id="date" class="border border-dark">
+                                <div id="datepicker">
+                                </div>
+                                <input type="hidden" id="my_hidden_input">
+                            </div>
+                        </div>
+
+                        <!-- Select time  -->
+                        <fieldset class="d-flex justify-content-center mt-3 d-none" id="time-picker">
+                            <label for="speed"></label>
+                            <select name="speed" id="speed" class="border border-dark text-center">
+                                <option selected disabled hidden>Select time</option>
+                                <option>10:00 - 10:45</option>
+                                <option>11:00 - 11:45</option>
+                                <option>12:00 - 12:45</option>
+                                <option>13:00 - 13:45</option>
+                                <option>15:00 - 15:45</option>
+                                <option>16:00 - 16:45</option>
+                            </select>
+                        </fieldset>
+
+                        <!-- Confirm booking button -->
+                        <div class="mt-3 d-flex justify-content-center d-none" id="book-div">
+                            <button type="button" class="btn text-center border border-dark" id="edit-book-confirm">Change</button>
+                        </div>
+
+                        <!-- Back to lesson type selection  -->
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn text-center mt-5 back-button" id="edit-back-lesson-type"><a class="text-reset text-decoration-none" href="{% url 'manage_bookings' %}"><i class="fa-solid fa-arrow-left fa-fw"></i>Back to Manage booking</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form method="POST" class="d-flex justify-content-center">
+            {% csrf_token %}
+            <input type='hidden' name='edit_date_inp' id='edit_date_inp' value=''>
+            <input type='hidden' name='edit_time_inp' id='edit_time_inp' value=''>
+            <div id="edit-date-form" class="row mt-5 d-none border border-dark d-flex justify-content-center ms-5">
+                <div>
+                    <p class="mt-3 h4 mb-0 text-center">Change date and time to:</p>
+                </div>
+                <div class="row d-flex justify-content-center confirmation-div">
+                    <span class="h5 text-end p-0 me-3" id="edit-date-date" name="edit-date-date"></span>
+                    <span class="h5 text-start p-0" id="edit-time" date="edit-time"></span>
+                </div>
+                <div class="col-5 d-flex justify-content-center h-25">
+                    <button type="submit" class="btn text-center border border-dark bg-info bg-opacity-25" id="edit-date-confirm"><i class="fa-solid fa-check fa-fw"></i>Confirm</button>
+                </div>
+                <div class="col-5 d-flex justify-content-center h-25">
+                    <button type="button" class="btn text-center border border-dark bg-secondary bg-opacity-25" id="edit-date-back-to-selection"><i class="fa-solid fa-arrow-left fa-fw"></i>Back</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    
+
+    {% else %}
+
+    <!-- Sign up or login message -->
+    <p class="h3 mt-5 text-center">
+        Please <a class="text-info text-decoration-none" href="#"> Sign Up</a> 
+        or <a class="text-info text-decoration-none" href="#">Login</a> to view your bookings
+    </p>
+
+    {% endif %}
+
+{%endblock%}

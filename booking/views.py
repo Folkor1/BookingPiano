@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, reverse, get_object_or_404
 from django.views import generic
 from .models import About, Bookings
+from django.http import HttpResponseRedirect
+
 
 
 def homepage(request):
@@ -34,11 +36,32 @@ class BookingsView(generic.ListView):
             status = True
             booking = Bookings(lesson=lesson, lesson_type=lesson_type, date=date, time=time, status=status)
             booking.save()
-            return redirect('manage_bookings')
+            context = {'lesson': lesson, 'lesson_type': lesson_type, 'date': date, 'time': time, 'status': status}
+            return HttpResponseRedirect(reverse('success'), context)
 
 
-def manage_bookings(request):
+class ManageBookingsView(generic.ListView):
     """
     Render manage bookings page
     """
-    return render(request, "manage_bookings.html")
+    model = Bookings
+    template_name = "manage_bookings.html"
+
+
+def success(request):
+    """
+    Render success page
+    """
+    return render(request, "success.html")
+
+
+def edit_booking_date(request, booking_id):
+    """
+    Edit booking date and time
+    """
+    booking = get_object_or_404(Bookings, id=booking_id)
+    if request.method == 'POST':
+        booking.date = request.POST.get('edit_date_inp')
+        booking.time = request.POST.get('edit_time_inp')
+        booking.save()
+    return render(request, 'edit_booking_date.html')

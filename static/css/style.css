@@ -120,12 +120,12 @@ color: #FCF8FF;
   background-color: #FCF8FF;
 }
 
-#manage-bookings, #manage {
+#manage-bookings, #manage, #success-manage-bookings {
   background-color: #FCF8FF;
   padding: 5px 50px 5px 50px;
 }
 
-#manage-bookings:hover, #manage:hover {
+#manage-bookings:hover, #manage:hover, #change-date:hover, #change-type:hover, #cancel:hover, #success-manage-bookings:hover {
   background-color: #1c1b1a;
 }
 
@@ -135,7 +135,7 @@ color: #FCF8FF;
   left: 80px;
 }
 
-#contacts-font, #upc-book, #pop-up {
+#contacts-font, #upc-book, #pop-up, #upc-manage-book {
   font-family: Merriweather Sans, sans-serif;
   font-size: 90%;
 }
@@ -156,7 +156,7 @@ color: #FCF8FF;
   width: 60px;
 }
 
-#date, #speed, #book-confirm, #confirm-message {
+#date, #speed, #book-confirm, #confirm-message, #change-date, #change-type, #cancel, #edit-book-confirm, #edit-date-form {
   background-color: #FCF8FF;
   border-radius: 3px;
 }
@@ -169,7 +169,7 @@ color: #FCF8FF;
   font-size: 80%;
 }
 
-#book-confirm {
+#book-confirm, #edit-book-confirm {
   padding: 20px 30px;
   width: 220px;
 }
@@ -194,12 +194,12 @@ color: #FCF8FF;
 
 /* Booking confirm message */
 
-#confirm-message {
+#confirm-message, #edit-date-form {
   height: 220px;
   width: 500px;
 }
 
-#back-to-selection, #confirm {
+#back-to-selection, #confirm, #edit-date-confirm, #edit-date-back-to-selection {
   margin-top: 20px;
   bottom: 0;
   height: 50px;
@@ -216,7 +216,7 @@ color: #FCF8FF;
   height: 30px;
 }
 
-#date-confirmation, #time-confirmation {
+#date-confirmation, #time-confirmation, #edit-date-date, #edit-time {
   font-family: Merriweather Sans, sans-serif;
   width: 200px;
 }
