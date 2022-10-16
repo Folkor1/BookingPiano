@@ -37,9 +37,9 @@ main {
 }
 
 .navbar-nav .nav-link.active {
-border: 1px solid #FCF8FF;
-color: #FCF8FF;
-
+  border: 1px solid #FCF8FF;
+  color: #FCF8FF;
+  border-radius: 3px;
 }
 
 /* Home page picture */
