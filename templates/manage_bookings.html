@@ -6,25 +6,32 @@
 {% if user.is_authenticated %}
 
     <!-- My upcoming bookings -->
-    <div class="mt-5 row row-cols-1 d-flex justify-content-centerd">
+    <div class="mt-5 row row-cols-1 d-flex justify-content-center" id="manage-bookings-wrap">
         <div class="text-center">
-            <p class="h3 mt-5 text-center">My upcoming bookings:</p>
+            <p class="h3 mt-5 text-center">
+                {% for booking in bookings_list|slice:":1" %}
+                    {% if booking.status %}
+                        My upcoming bookings:
+                    {% else %}
+                        You currently don't have upcoming lessons.
+                    {% endif %}
+                {% endfor %}
+            </p>
             <div class="mt-4">
 
                 {% for booking in bookings_list %}
                     {% if booking.status %}
                     <div class="btn-toolbar d-flex justify-content-center mt-2 mb-2 h4">
-                        <p class="btn-group me-3 mb-0 lh-lg" id="upc-manage-book">{{ booking.lesson }} {{ booking.lesson_type }} | {{ booking.date }}</p>
-                        <button type="button" class="w-auto btn btn-outline-dark btn-group me-2 ps-2 pe-2 h-50 p-0 align-middle mt-1" id="change-date"><p class="m-0 p-0 h6 lh-lg"><a class="text-reset text-decoration-none" href="/edit/{{ booking.id }}"> Change date</p></a></button>
-                        <button type="button" class="w-auto btn btn-outline-dark btn-group me-2 ps-2 pe-2 h-50 p-0 align-middle mt-1" id="change-type"><p class="m-0 p-0 h6 lh-lg">Change type</p></button>
-                        <button type="button" class="w-auto btn btn-outline-dark btn-group me-2 ps-2 pe-2 h-50 p-0 align-middle mt-1" id="cancel"><p class="m-0 p-0 h6 lh-lg">Cancel</p></button>
+                        <p class="btn-group me-3 mb-0 lh-lg" id="upc-manage-book">{{ booking.lesson }} {{ booking.lesson_type }} | {{ booking.date }} - {{ booking.time }}</p>
+                        <button type="button" class="w-auto btn btn-outline-dark btn-group me-2 ps-2 pe-2 h-50 p-0 align-middle mt-1" id="change-date"><p class="m-0 p-0 h6 lh-lg"><a class="text-reset text-decoration-none" href="/edit/{{ booking.id }}">Change date</p></a></button>
+                        <button type="button" class="w-auto btn btn-outline-dark btn-group me-2 ps-2 pe-2 h-50 p-0 align-middle mt-1" id="change-type"><p class="m-0 p-0 h6 lh-lg"><a class="text-reset text-decoration-none" href="/edit_type/{{ booking.id }}">Change type</p></a></button>
+                        <button type="button" class="w-auto btn btn-outline-dark btn-group me-2 ps-2 pe-2 h-50 p-0 align-middle mt-1" id="cancel"><p class="m-0 p-0 h6 lh-lg"><a class="text-reset text-decoration-none" href="/cancel/{{ booking.id }}">Cancel</p></a></button>
                     </div>
                     {% endif %}
                 {% endfor %}
             </div>
             <button type="button" class="mt-3 btn btn-outline-dark" id="manage">View my past bookings</button>
         </div>
-
     </div>
 
     {% else %}

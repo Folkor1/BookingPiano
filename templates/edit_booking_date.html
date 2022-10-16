@@ -11,9 +11,8 @@
             <p class="h3 mt-5 text-center">Edit date and time</p>
             <div class="mt-2">
                 <div class="row d-flex justify-content-center" id="book-for">
-                    Booking for&nbsp;
-                   <span class="p-0 me-2 w-auto" id="piano-or-theory">{{ booking.lesson }}</span>
-                   <span class="p-0 w-auto" id="online-or-offline"></span>
+                   <span class="p-0 me-2 w-auto" id="piano-or-theory">{{ edit_date_lesson }}</span>
+                   <span class="p-0 w-auto" id="online-or-offline">{{ edit_date_lesson_type }}</span>
                </div>
 
                 <!-- Select date  -->
@@ -55,6 +54,7 @@
             </div>
         </div>
 
+        <!-- Edit date confirmation message -->
         <form method="POST" class="d-flex justify-content-center">
             {% csrf_token %}
             <input type='hidden' name='edit_date_inp' id='edit_date_inp' value=''>
@@ -68,17 +68,14 @@
                     <span class="h5 text-start p-0" id="edit-time" date="edit-time"></span>
                 </div>
                 <div class="col-5 d-flex justify-content-center h-25">
-                    <button type="submit" class="btn text-center border border-dark bg-info bg-opacity-25" id="edit-date-confirm"><i class="fa-solid fa-check fa-fw"></i>Confirm</button>
+                    <button type="submit" class="btn text-center border border-dark bg-secondary bg-opacity-25" id="edit-date-confirm"><i class="fa-solid fa-check fa-fw"></i>Confirm</button>
                 </div>
                 <div class="col-5 d-flex justify-content-center h-25">
                     <button type="button" class="btn text-center border border-dark bg-secondary bg-opacity-25" id="edit-date-back-to-selection"><i class="fa-solid fa-arrow-left fa-fw"></i>Back</button>
                 </div>
             </div>
         </form>
-
     </div>
-
-    
 
     {% else %}
 

@@ -8,6 +8,7 @@ $(document).ready(function() {
     let onlineorOffline = document.getElementById("online-or-offline");
     let editDateDate = document.getElementById("edit-date-date");
     let editDateTime = document.getElementById("edit-time");
+    let editLessonType = document.getElementById("edit_lesson_type");
     let booking = [];
     let date = [];
     let time = [];
@@ -182,5 +183,21 @@ $(document).ready(function() {
         editDateTime.innerText = time[0];
         document.getElementById('edit_time_inp').value = time[0];
         };
+
+      // Timeout for alert messages
+      setTimeout(function () {
+          let messages = document.getElementById('msg');
+          let alert = new bootstrap.Alert(messages);
+          alert.close();
+      }, 2500);
+
+      // Get lesson type on edit
+      $('#edit-lesson-type-confirm').on("click", function() {
+        if($("#edit_type_value").is(':contains("Online")')) {
+          editLessonType.value = 'Online'
+        } else {
+          editLessonType.value = 'Offline'
+        }
+      });
 
 });

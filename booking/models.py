@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from datetime import datetime
+from django.utils import timezone
 
 
 class Bookings(models.Model):
@@ -13,6 +14,41 @@ class Bookings(models.Model):
     date = models.DateField()
     time = models.TimeField()
     status = models.BooleanField(default=False)
+
+    def get_lesson(self):
+        """
+        Return lesson name
+        """
+        return self.lesson
+
+    def get_lesson_type(self):
+        """
+        Return lesson type name
+        """
+        return self.lesson_type
+
+    def get_date(self):
+        """
+        Return date
+        """
+        return self.date
+
+    def get_time(self):
+        """
+        Return date
+        """
+        return self.time
+
+    def check_status(self):
+        """
+        Change status of completed bookings
+        """
+        now = timezone.now()
+        if now > self.date and self.status:
+            self.status = False
+            self.save()
+            return False
+        return self.active
 
     class Meta:
         ordering = ['-date']

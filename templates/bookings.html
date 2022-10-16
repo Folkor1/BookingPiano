@@ -106,7 +106,7 @@
                             <span class="h5 text-start p-0" id="time-confirmation" date="time"></span>
                         </div>
                         <div class="col-5 d-flex justify-content-center">
-                            <button type="submit" class="btn text-center border border-dark bg-info bg-opacity-25" id="confirm"><i class="fa-solid fa-check fa-fw"></i>Confirm</button>
+                            <button type="submit" class="btn text-center border border-dark bg-secondary bg-opacity-25" id="confirm"><i class="fa-solid fa-check fa-fw"></i>Confirm</button>
                         </div>
                         <div class="col-5 d-flex justify-content-center">
                             <button type="button" class="btn text-center border border-dark bg-secondary bg-opacity-25" id="back-to-selection"><i class="fa-solid fa-arrow-left fa-fw"></i>Back</button>
@@ -132,7 +132,15 @@
             <!-- My upcoming bookings  -->
             <div class="col-3">
                 <div class="text-center">
-                    <p class="text-center h5">My upcoming bookings:</p>
+                    <p class="text-center h5">
+                        {% for booking in bookings_list|slice:":1" %}
+                            {% if booking.status %}
+                                My upcoming bookings:
+                            {% else %}
+                                You currently don't have upcoming lessons.
+                            {% endif %}
+                        {% endfor %}
+                    </p>
                     <div class="mt-4">
 
                         {% for booking in bookings_list %}

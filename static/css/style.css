@@ -156,7 +156,7 @@ color: #FCF8FF;
   width: 60px;
 }
 
-#date, #speed, #book-confirm, #confirm-message, #change-date, #change-type, #cancel, #edit-book-confirm, #edit-date-form {
+#date, #speed, #book-confirm, #confirm-message, #change-date, #change-type, #cancel, #edit-book-confirm, #edit-date-form, #edit-lesson-type, #cancel-lesson {
   background-color: #FCF8FF;
   border-radius: 3px;
 }
@@ -194,12 +194,12 @@ color: #FCF8FF;
 
 /* Booking confirm message */
 
-#confirm-message, #edit-date-form {
+#confirm-message, #edit-date-form, #edit-lesson-type, #cancel-lesson {
   height: 220px;
   width: 500px;
 }
 
-#back-to-selection, #confirm, #edit-date-confirm, #edit-date-back-to-selection {
+#back-to-selection, #confirm, #edit-date-confirm, #edit-date-back-to-selection, #edit-lesson-type-confirm, #edit-lesson-type-back-to-selection, #cancel-lesson-confirm, #cancel-lesson-back-to-selection {
   margin-top: 20px;
   bottom: 0;
   height: 50px;

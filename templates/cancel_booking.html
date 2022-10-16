@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+        <!-- Cancel lesson confirmation message -->
+        <form method="POST">
+            {% csrf_token %}
+            <input type='hidden'>
+            <div class="container d-flex justify-content-center mt-5">
+                <div id="cancel-lesson" class="row mt-5 border border-dark d-flex justify-content-center ms-5">
+                    <div>
+                        <p id="cancel-lesson-msg" class="lh-base mt-2 h4 mb-0 text-center">Are you sure you want to cancel the lesson?<br><strong>{{ cancel_lesson }} {{ cancel_lesson_type }} | {{ cancel_date }} - {{ cancel_time }}</strong></p>
+                    </div>
+                    <div class="col-5 d-flex justify-content-center h-25">
+                        <button type="submit" class="btn text-center border border-dark bg-secondary bg-opacity-25" id="cancel-lesson-confirm"><i class="fa-solid fa-check fa-fw"></i>Confirm</button>
+                    </div>
+                    <div class="col-5 d-flex justify-content-center h-25">
+                        <button type="button" class="btn text-center border border-dark bg-secondary bg-opacity-25" id="cancel-lesson-back-to-selection"><i class="fa-solid fa-arrow-left fa-fw"><a class="text-reset text-decoration-none" href="{% url 'manage_bookings' %}"></i>Back</a></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    {% else %}
+
+    <!-- Sign up or login message -->
+    <p class="h3 mt-5 text-center">
+        Please <a class="text-info text-decoration-none" href="#"> Sign Up</a> 
+        or <a class="text-info text-decoration-none" href="#">Login</a> to view your bookings
+    </p>
+
+    {% endif %}
+
+{%endblock%}
