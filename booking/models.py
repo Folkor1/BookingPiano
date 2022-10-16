@@ -35,7 +35,7 @@ class Bookings(models.Model):
 
     def get_time(self):
         """
-        Return date
+        Return time
         """
         return self.time
 
@@ -48,7 +48,7 @@ class Bookings(models.Model):
             self.status = False
             self.save()
             return False
-        return self.active
+        return self.status
 
     class Meta:
         ordering = ['-date']
