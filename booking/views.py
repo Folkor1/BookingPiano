@@ -3,6 +3,7 @@ from django.views import generic
 from .models import About, Bookings
 from django.http import HttpResponseRedirect
 from django.contrib import messages
+from datetime import datetime
 
 
 def homepage(request):
@@ -48,6 +49,8 @@ class ManageBookingsView(generic.ListView):
     Render manage bookings page
     """
     model = Bookings
+    booking = Bookings.objects.all()
+    Bookings.check_status(booking)
     template_name = "manage_bookings.html"
 
 
