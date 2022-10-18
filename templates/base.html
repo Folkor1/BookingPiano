@@ -2,6 +2,8 @@
 {% url 'homepage' as homepage %}
 {% url 'about' as about %}
 {% url 'bookings' as bookings %}
+{% url 'account_login' as account_login %}
+{% url 'account_signup' as account_signup %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,12 +41,18 @@
               <li class="nav-item">
                 <a class="nav-link {% if request.path == bookings %} active {% endif %}" aria-current="page" href="{% url 'bookings' %}">BOOKINGS</a>
               </li>
+              {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">SIGN UP</a>
+                <a class="nav-link" aria-current="page" href="{% url 'account_logout' %}">LOGOUT</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link {% if request.path == account_signup %} active {% endif %}" aria-current="page" href="{% url 'account_signup' %}">SIGN UP</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">LOGIN</a>
+                <a class="nav-link {% if request.path == account_login %} active {% endif %}" aria-current="page" href="{% url 'account_login' %}">LOGIN</a>
               </li>
+              {% endif %}
             </ul>
           </div>
         </div>

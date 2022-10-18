@@ -156,7 +156,7 @@ main {
   width: 60px;
 }
 
-#date, #speed, #book-confirm, #confirm-message, #change-date, #change-type, #cancel, #edit-book-confirm, #edit-date-form, #edit-lesson-type, #cancel-lesson {
+#date, #speed, #book-confirm, #confirm-message, #change-date, #change-type, #cancel, #edit-book-confirm, #edit-date-form, #edit-lesson-type, #cancel-lesson, #signup, #signin, #signout-confirm, #reset {
   background-color: #FCF8FF;
   border-radius: 3px;
 }

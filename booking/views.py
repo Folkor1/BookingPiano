@@ -4,6 +4,7 @@ from .models import About, Bookings
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from datetime import datetime
+from datetime import date
 
 
 def homepage(request):
@@ -49,8 +50,6 @@ class ManageBookingsView(generic.ListView):
     Render manage bookings page
     """
     model = Bookings
-    booking = Bookings.objects.all()
-    Bookings.check_status(booking)
     template_name = "manage_bookings.html"
 
 
@@ -60,6 +59,12 @@ def edit_booking_date(request, booking_id):
     """
     booking = get_object_or_404(Bookings, id=booking_id)
     if request.method == 'POST':
+        now = date.today()
+        boo = Bookings.objects.all()
+        for b in boo:
+            if now > b.date:
+                b.status = False
+                b.save()
         booking.date = request.POST.get('edit_date_inp')
         booking.time = request.POST.get('edit_time_inp')
         booking.save()
