@@ -105,7 +105,6 @@ $(document).ready(function() {
         $('#book-div').removeClass('d-none');
         time.splice(0);
         var selectedTime = $("#time-picker option:selected").text();
-        console.log(time)
         time.push(selectedTime);
       });
 
