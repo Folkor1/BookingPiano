@@ -3,8 +3,7 @@ from django.views import generic
 from .models import About, Bookings
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from datetime import datetime
-from datetime import date
+from datetime import datetime, date
 
 
 def homepage(request):
